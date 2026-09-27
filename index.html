@@ -4,196 +4,191 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SIH Project Gateway</title>
-    <!-- Importing a premium font -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
-        /* Base Reset & Styling */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
-        }
-
-        body {
-            /* Premium Dark Blue/Slate Gradient */
-            background: #0f172a;
-            background-image: radial-gradient(circle at top right, #1e293b, #0f172a);
-            color: #f8fafc;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem;
-        }
-
-        /* Glassmorphism Container */
-        .container {
-            max-width: 850px;
-            width: 100%;
-            background: rgba(30, 41, 59, 0.6);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 1.5rem;
-            padding: 3.5rem;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-            text-align: center;
-        }
-
-        /* Typography */
-        h1 {
-            font-size: 2.8rem;
-            font-weight: 800;
-            margin-bottom: 0.5rem;
-            /* Text Gradient for Premium Look */
-            background: linear-gradient(to right, #38bdf8, #818cf8);
-            -webkit-background-clip: text;
-            color: transparent;
-            letter-spacing: -0.05em;
-        }
-
-        .subtitle {
-            color: #94a3b8;
-            font-size: 1.1rem;
-            margin-bottom: 2.5rem;
-        }
-
-        /* Warning/Notice Box */
-        .notice {
-            background: rgba(245, 158, 11, 0.1);
-            border-left: 4px solid #f59e0b;
-            padding: 1.5rem 2rem;
-            border-radius: 0.5rem;
-            margin-bottom: 3rem;
-            text-align: left;
-        }
-
-        .notice h3 {
-            color: #fcd34d;
-            margin-bottom: 0.75rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 1.2rem;
-        }
-
-        .notice p {
-            color: #cbd5e1;
-            font-size: 0.95rem;
-            line-height: 1.6;
-            margin-bottom: 0.5rem;
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            font-family: 'Inter', sans-serif; 
         }
         
-        .notice p:last-child {
-            margin-bottom: 0;
+        body { 
+            background: #0f172a; 
+            background-image: radial-gradient(circle at top right, #1e293b, #0f172a); 
+            color: #f8fafc; 
+            min-height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center; 
+            padding: 1rem; 
         }
 
-        /* Links Grid */
-        .server-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
+        .container { 
+            max-width: 850px; 
+            width: 100%; 
+            background: rgba(30, 41, 59, 0.6); 
+            backdrop-filter: blur(16px); 
+            -webkit-backdrop-filter: blur(16px); 
+            border: 1px solid rgba(255, 255, 255, 0.1); 
+            border-radius: 1.5rem; 
+            padding: 2.5rem; 
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); 
+            text-align: center; 
         }
 
-        @media (max-width: 650px) {
-            .server-grid {
-                grid-template-columns: 1fr;
-            }
-            .container {
-                padding: 2rem;
-            }
-            h1 {
-                font-size: 2.2rem;
-            }
+        h1 { 
+            font-size: 2.4rem; 
+            font-weight: 800; 
+            margin-bottom: 0.3rem; 
+            background: linear-gradient(to right, #38bdf8, #818cf8); 
+            -webkit-background-clip: text; 
+            color: transparent; 
+            letter-spacing: -0.05em; 
         }
 
-        /* Server Cards */
-        .server-card {
-            background: rgba(15, 23, 42, 0.5);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 2.5rem;
-            border-radius: 1rem;
-            text-decoration: none;
-            color: white;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1rem;
-            position: relative;
-            overflow: hidden;
+        .subtitle { 
+            color: #94a3b8; 
+            font-size: 1rem; 
+            margin-bottom: 1.5rem; 
         }
 
-        /* Hover Effects */
-        .server-card:hover {
-            transform: translateY(-8px);
-            border-color: #38bdf8;
-            background: rgba(15, 23, 42, 0.8);
-            box-shadow: 0 10px 30px -5px rgba(56, 189, 248, 0.25);
+        .notice { 
+            background: rgba(245, 158, 11, 0.1); 
+            border-left: 4px solid #f59e0b; 
+            padding: 1rem 1.5rem; 
+            border-radius: 0.5rem; 
+            margin-bottom: 1.5rem; 
+            text-align: left; 
         }
 
-        .server-card.backup:hover {
-            border-color: #10b981;
-            box-shadow: 0 10px 30px -5px rgba(16, 185, 129, 0.25);
+        .notice h3 { 
+            color: #fcd34d; 
+            margin-bottom: 0.5rem; 
+            display: flex; 
+            align-items: center; 
+            gap: 0.5rem; 
+            font-size: 1.1rem; 
         }
 
-        /* Glow effect on hover */
-        .server-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; height: 2px;
-            background: transparent;
-            transition: all 0.3s ease;
+        .notice p { 
+            color: #cbd5e1; 
+            font-size: 0.85rem; 
+            line-height: 1.5; 
+            margin-bottom: 0.4rem; 
         }
+
+        .notice p:last-child { margin-bottom: 0; }
+
+        .server-grid { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 1.5rem; 
+        }
+
+        .server-card { 
+            background: rgba(15, 23, 42, 0.5); 
+            border: 1px solid rgba(255, 255, 255, 0.05); 
+            padding: 1.5rem; 
+            border-radius: 1rem; 
+            text-decoration: none; 
+            color: white; 
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            gap: 0.8rem; 
+            position: relative; 
+            overflow: hidden; 
+        }
+
+        .server-card:hover { 
+            transform: translateY(-5px); 
+            border-color: #38bdf8; 
+            background: rgba(15, 23, 42, 0.8); 
+            box-shadow: 0 10px 30px -5px rgba(56, 189, 248, 0.25); 
+        }
+
+        .server-card.backup:hover { 
+            border-color: #10b981; 
+            box-shadow: 0 10px 30px -5px rgba(16, 185, 129, 0.25); 
+        }
+
+        .server-card::before { 
+            content: ''; 
+            position: absolute; 
+            top: 0; left: 0; right: 0; height: 2px; 
+            background: transparent; 
+            transition: all 0.3s ease; 
+        }
+        
         .server-card:hover::before { background: #38bdf8; }
         .server-card.backup:hover::before { background: #10b981; }
 
-        .server-card h2 {
-            font-size: 1.5rem;
-            font-weight: 600;
-        }
-
-        .server-card span {
-            font-size: 0.9rem;
-            color: #94a3b8;
-        }
-
-        .icon {
-            font-size: 3rem;
+        .server-card h2 { font-size: 1.3rem; font-weight: 600; }
+        .server-card span { font-size: 0.8rem; color: #94a3b8; }
+        .icon { font-size: 2.2rem; }
+        
+        /* 🔥 Mobile Layout Adjustments 🔥 */
+        @media (max-width: 650px) {
+            body { padding: 0.5rem; }
+            .container { padding: 1.2rem; border-radius: 1rem; }
+            h1 { font-size: 1.8rem; }
+            .subtitle { font-size: 0.9rem; margin-bottom: 1rem; }
+            
+            .notice { padding: 0.8rem 1rem; margin-bottom: 1.2rem; }
+            .notice h3 { font-size: 0.95rem; }
+            .notice p { font-size: 0.75rem; line-height: 1.4; }
+            
+            .server-grid { grid-template-columns: 1fr; gap: 0.8rem; }
+            
+            /* Changed buttons to row layout on mobile to save space */
+            .server-card { 
+                flex-direction: row; 
+                text-align: left; 
+                padding: 1rem; 
+                gap: 1rem; 
+                justify-content: flex-start; 
+            }
+            .server-card .card-text { 
+                display: flex; 
+                flex-direction: column; 
+                gap: 0.2rem; 
+            }
+            .server-card h2 { font-size: 1.1rem; }
+            .icon { font-size: 1.8rem; margin: 0; }
         }
     </style>
 </head>
 <body>
-
     <div class="container">
-        <!-- Project Title -->
         <h1>SIH Deployment Gateway</h1>
         <p class="subtitle">Smart India Hackathon - Access Portal</p>
         
-        <!-- Explanation Notice -->
         <div class="notice">
             <h3>⚠️ Important Note for Evaluators</h3>
             <p>Our backend services are currently hosted on <strong>Render's Free Tier</strong>. Due to platform policies, free instances automatically "spin down" (go to sleep) after 15 minutes of inactivity.</p>
-            <p>As a result, <strong>the first request may take 50-60 seconds</strong> to wake the server up. To ensure a seamless evaluation experience, we have provided a redundant <strong>Backup Server</strong>. If the main server is loading, you can instantly switch to the backup link.</p>
+            <p>As a result, <strong>the first request may take 50-60 seconds</strong> to wake the server up. To ensure a seamless evaluation experience, we have provided a redundant <strong>Backup Server</strong>.</p>
         </div>
 
-        <!-- Links to Main and Backup -->
         <div class="server-grid">
             <a href="https://sih-doc-scanner.onrender.com/" class="server-card" target="_blank">
                 <div class="icon">🚀</div>
-                <h2>Main Server</h2>
-                <span>Primary Render Instance</span>
+                <div class="card-text">
+                    <h2>Main Server</h2>
+                    <span>Primary Render Instance</span>
+                </div>
             </a>
             
             <a href="https://sih-doc-scanner.onrender.com/" class="server-card backup" target="_blank">
                 <div class="icon">🛡️</div>
-                <h2>Backup Server</h2>
-                <span>Secondary Fallback Instance</span>
+                <div class="card-text">
+                    <h2>Backup Server</h2>
+                    <span>Secondary Fallback Instance</span>
+                </div>
             </a>
         </div>
     </div>
-
 </body>
 </html>
